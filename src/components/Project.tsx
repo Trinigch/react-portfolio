@@ -27,9 +27,9 @@ const Image = styled.img`
   margin-right: 20px; /* Espacio entre la imagen y el contenido del texto */
 `;
 
-const TextContainer = styled.div`
-  flex: 1; /* Permite que el contenedor de texto ocupe el espacio restante */
-`;
+//const TextContainer = styled.div`
+ // flex: 1; /* Permite que el contenedor de texto ocupe el espacio restante */
+//`;
 
 const Button = styled.a`
   display: inline-block;
