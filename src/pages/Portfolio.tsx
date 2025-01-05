@@ -36,16 +36,16 @@ const projectsData = [
 const Container = styled.div`
   width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
   margin: auto; /* Centra el contenedor */
-  padding: 20px; /* Espaciado interno */
+  padding: 100px; /* Espaciado interno */
   display: flex;
   flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-  justify-content: center; /* Centra los elementos */
+  
 `;
-
+/*justify-content: center;  Centra los elementos */
 const Title = styled.h1`
-  text-align: center;
+  text-align: vertical;
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
 `;
 
 export default function Portfolio() {
