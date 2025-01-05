@@ -2,11 +2,11 @@
 import styled from 'styled-components';
 import Project from '../components/Project'; // Asegúrate de la ruta correcta
 import Job1 from './../assets/img/Gallery.png'
-import Job2 from './../assets/img/bg.jpg'
-import Job3 from './../assets/img/Employee-Tracker.jpeg'
-import Job4 from './../assets/img/Vehicle-Builder.jpg'
+import Job2 from './../assets/img/bg2.png'
+//import Job3 from './../assets/img/Employee-Tracker.jpeg'
+//import Job4 from './../assets/img/Vehicle-Builder.jpg'
 import Job5 from './../assets/img/Themed-Timer.png'
-import Job6 from './../assets/img/register.png'
+//import Job6 from './../assets/img/register.png'
 
 // Aquí defines los datos de los proyectos
 const projectsData = [
@@ -24,30 +24,12 @@ const projectsData = [
   
   },
   {
-    title: 'Weather-Dashboard',
-    deployedUrl: '',
-    githubUrl: 'https://github.com/Trinigch/Weather-Dashboard.git',
+    title: 'trivia-titans',
+    deployedUrl: 'https://trivia-titans.onrender.com/',
+    githubUrl: 'https://github.com/kyand38/Trivia-Titans.git',
     imageUrl: Job2, 
   },
-  {
-    title: 'Employee-Tracker',
-    deployedUrl: 'https://curso-react-app-lista-ga-a835b.web.app',
-    githubUrl: 'https://github.com/Trinigch/Employee-Tracker.git', 
-    imageUrl: Job3, 
-  },
-  {
-    title: 'Vehicle-Builder',
-    deployedUrl: 'https://curso-react-app-lista-ga-a835b.web.app',
-    githubUrl: 'https://github.com/Trinigch/Vehicle-Builder.git', 
-    imageUrl: Job4, 
-  },
 
-  {
-    title: 'Register App',
-    deployedUrl: 'https://curso-react-app-lista-ga-a835b.web.app',
-    githubUrl: 'https://github.com/Trinigch/RegisterApp', 
-    imageUrl: Job6,
-  },
   // Agrega más proyectos aquí
 ];
 
