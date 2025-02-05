@@ -81,6 +81,9 @@ Error generating stack: `+i.message+`
   margin-bottom: 20px;
   color:var(--dark-accent);
   letter-spacing: 1.5px; /* Espaciado para mejor legibilidad */
+   @media (max-width: 650px) {
+    font-size: 2rem; /* Reduce el tamaño para pantallas pequeñas */
+  }
 `,i=D.p`
   font-family: 'IBM Plex Mono', monospace;
   font-size: 2.5rem; /* Ajusta según sea necesario */
@@ -88,6 +91,9 @@ Error generating stack: `+i.message+`
   padding: 20px;
   line-height: 1.4;
   width: fit-content;
+    @media (max-width: 650px) {
+    font-size: 1.8rem; /* Reduce el tamaño para pantallas pequeñas */
+  }
 `;return w.jsx(e,{children:w.jsxs("div",{className:"min-h-screen w-screen flex items-center justify-center",children:[w.jsx(t,{}),w.jsx(n,{src:Ju,alt:"Avatar"}),w.jsxs(r,{children:[w.jsx(l,{children:"Hey, I'm Maria!"}),w.jsx(i,{children:"Hi there! I'm Maria Renata, a Full Stack Developer passionate about building seamless digital experiences, working remotely in Minnesota."})]})]})})}const Um=D.div`
   display: flex;
   flex-direction: column;
@@ -279,7 +285,9 @@ border: 4px solid #F5F5F5; /* Borde blanco */
     margin-bottom: 24px;
     color: #213547;
     text-align: justify;
-  `,u=D.ul`
+     @media(max-width:650px){
+     font-size:1rem;
+     }`,u=D.ul`
     list-style-type: disc;
     text-align: left;
     padding-left: 25px;

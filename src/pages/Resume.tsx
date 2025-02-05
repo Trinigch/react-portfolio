@@ -65,8 +65,20 @@ export default function Resume() {
     margin-bottom: 24px;
     color: #213547;
     text-align: justify;
-  `;
+     @media(max-width:650px){
+     font-size:1rem;
+     }`;
 
+  // const Paragraph = styled.p`
+  // font-family: 'IBM Plex Mono', monospace;
+  // font-size: 2.5rem; /* Ajusta según sea necesario */
+  // color:var(--dark-accent);
+  // padding: 20px;
+  // line-height: 1.4;
+  // width: fit-content;
+  //   @media (max-width: 650px) {
+  //   font-size: 1.8rem; /* Reduce el tamaño para pantallas pequeñas */
+  // }`
   const SkillsList = styled.ul`
     list-style-type: disc;
     text-align: left;
