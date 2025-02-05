@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 const Avatar = styled.img`
 position: absolute;
-top: 80px; /* Ajusta la posición vertical */
+top: 20px; /* Ajusta la posición vertical */
 left: 20px; /* Ajusta la posición horizontal */
 width: 120px;
 height: 120px;

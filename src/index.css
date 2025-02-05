@@ -19,12 +19,13 @@
   color-scheme: light dark;
   color: rgba(172, 250, 248, 0.87);
   background-color: #f5eded;
-  --dark-accent: #1F3A64; /*   Azul Marino (#1F3A64) – Inspirado en el saco, representa profesionalismo, confianza y seriedad.*/
-  --light-background: #E6D7C5; /* Reflejado en el tono de piel, aporta calidez y naturalidad.*/
-  --light-accent: #D9A7B5; /*Basado en la blusa, aporta un toque de amabilidad y accesibilidad.*/
-  --neutral-color:#B0B0B0;/*Del fondo, sugiere neutralidad y equilibrio.*/
-  --white-background:#F5F5F5;
+  --dark-accent: #1F3A64; /* Azul Marino (#1F3A64) */
+  --light-background: #E6D7C5; /* Tono cálido */
+  --light-accent: #D9A7B5; /* Rosa suave */
+  --neutral-color: #B0B0B0; /* Gris neutro */
+  --white-background: #F5F5F5;
 }
+
 body {
   line-height: 1;
   font-family: sans-serif;
@@ -38,8 +39,6 @@ body {
   min-width: 100%;
 }
 
-
-
 /* Light mode adjustments */
 @media (prefers-color-scheme: light) {
   :root {
@@ -48,21 +47,44 @@ body {
   }
 }
 
-/* Responsive Styles */
-
-/* Header responsive font size */
-h1 {
-  @apply text-4xl md:text-5xl lg:text-6xl; /* Adjusts font size for medium and large screens */
-  line-height: 1.1;
-  text-align: center;
-  color:#1F3A64;
+/* Navbar Styling */
+.navbar-links {
+  @apply flex space-x-4 font-bold tracking-wide hover:text-[#D9A7B5] transition-colors;
 }
 
-/* Paragraph responsive font size */
+.navbar-item {
+  @apply cursor-pointer px-2 py-1 rounded transition-colors duration-300;
+}
+
+.navbar-item:hover {
+  color: #1F3A64;
+  background-color: var(--light-accent);
+}
+
+.navbar-item.active {
+  font-weight: bold;
+  /*background-color: var(--light-accent); /* Change background for active item */
+  border-bottom: 1px solid #1F3A64;
+}
+
+/* Responsive Styles */
+@media (max-width: 650px) {
+  .header-title {
+    display: none; /* Hide title when screen width is less than 650px */
+  }
+}
+
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl;
+  line-height: 1.1;
+  text-align: center;
+  color: #1F3A64;
+}
+
 p {
-  @apply text-base md:text-lg lg:text-xl; /* Scales up the font for readability on larger screens */
+  @apply text-base md:text-lg lg:text-xl;
   margin: 1em 0;
-  color:#1F3A64;
+  color: #1F3A64;
 }
 
 /* Button Styling */
@@ -72,20 +94,14 @@ button {
 
 /* Navbar Styling */
 .navbar {
-  @apply w-full flex justify-around p-4 ; /* Responsive layout */
+  @apply w-full flex justify-around p-4;
   position: sticky;
   width: 100%;
-  /*position: fixed;*/
   top: 0;
   z-index: 10;
-  color:#1F3A64;
+  color: #1F3A64;
 }
 
- a {
- color:#1F3A64;; /* Link styling with hover */
-} 
-
-ul,
-ol {
-  @apply list-none;
+a {
+  color: #1F3A64; /* Link styling with hover */
 }

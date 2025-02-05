@@ -15,7 +15,6 @@ function AboutMe() {
     position: relative; /* Permite posicionar el avatar correctamente */
   
   `;
-
   const ImageContainer = styled.div`
     flex: 1;
     background-image: url(${backgroundImage});
@@ -28,10 +27,7 @@ function AboutMe() {
      @media screen and (max-width: 768px) {
     display: none;
   }
-
-
   `;
-
   const Avatar = styled.img`
     position: absolute;
     top: 20px; /* Ajusta la posición vertical */
@@ -41,7 +37,6 @@ function AboutMe() {
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
   `;
-
   const TextContainer = styled.div`
     flex: 1;
     padding: 60px;
@@ -50,20 +45,6 @@ function AboutMe() {
     flex-direction: column;
     justify-content: center;
   `;
-
-  // const Paragraph = styled.p`
-  //   font-size: 2.5rem;
-  //   margin-bottom: 32px;
-  //   color: #213547; /* Gris oscuro para mejor legibilidad */
-  // `;
-
-  // const Heading = styled.h1`
-  //   font-size: 2.5rem;
-  //   font-weight: bold;
-  //   margin-bottom: 20px;
-  //   color: #1F3A64; /* Azul Marino */
-   
-  // `;
   const Heading = styled.h1`
   font-size: 3rem; /* Aumenta el tamaño para mayor impacto */
   font-weight: bold;
@@ -71,20 +52,10 @@ function AboutMe() {
   color:var(--dark-accent);
   letter-spacing: 1.5px; /* Espaciado para mejor legibilidad */
 `;
-
-// const Paragraph = styled.p`
-//   font-size: 1.5rem; /* Reduce el tamaño para facilitar la lectura */
-//   line-height: 1.8; /* Aumenta el interlineado para mejor espaciado */
-//   margin-bottom: 24px;
-//   color: #213547; /* Gris oscuro para contraste */
-//   text-align: justify; /* Justifica el texto para un look más profesional */
-//   max-width: 800px; /* Limita el ancho del texto para mejorar la legibilidad */
-// `;
 const Paragraph = styled.p`
   font-family: 'IBM Plex Mono', monospace;
   font-size: 2.5rem; /* Ajusta según sea necesario */
   color:var(--dark-accent);
-//  background-color: #3366CC;
   padding: 20px;
   line-height: 1.4;
   width: fit-content;
@@ -102,5 +73,4 @@ const Paragraph = styled.p`
     </Container>
   );
 }
-
 export default AboutMe;
