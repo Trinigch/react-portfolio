@@ -19,7 +19,7 @@ body {
   line-height: 1;
   font-family: sans-serif;
   color: #333;
-  background-color: #5ca6ef;
+  background-color: #b1cde9;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -32,13 +32,18 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
   color: rgba(172, 250, 248, 0.87);
-  background-color: #242424;
+  background-color: #f5eded;
+  --dark-accent: #1F3A64; /*   Azul Marino (#1F3A64) – Inspirado en el saco, representa profesionalismo, confianza y seriedad.*/
+  --light-background: #E6D7C5; /* Reflejado en el tono de piel, aporta calidez y naturalidad.*/
+  --light-accent: #D9A7B5; /*Basado en la blusa, aporta un toque de amabilidad y accesibilidad.*/
+  --neutral-color:#B0B0B0;/*Del fondo, sugiere neutralidad y equilibrio.*/
+  --white-background:#F5F5F5;
 }
 
 /* Light mode adjustments */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: #1F3A64;
     background-color: #ffffff;
   }
 }
@@ -50,12 +55,14 @@ h1 {
   @apply text-4xl md:text-5xl lg:text-6xl; /* Adjusts font size for medium and large screens */
   line-height: 1.1;
   text-align: center;
+  color:#1F3A64;
 }
 
 /* Paragraph responsive font size */
 p {
   @apply text-base md:text-lg lg:text-xl; /* Scales up the font for readability on larger screens */
   margin: 1em 0;
+  color:#1F3A64;
 }
 
 /* Button Styling */
@@ -65,10 +72,11 @@ button {
 
 /* Navbar Styling */
 .navbar {
-  @apply w-full flex justify-around p-4 bg-gray-900 text-white; /* Responsive layout */
+  @apply w-full flex justify-around p-4 ; /* Responsive layout */
   position: sticky;
   top: 0;
   z-index: 10;
+  color:#1F3A64;
 }
 
 a {

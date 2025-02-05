@@ -1,4 +1,3 @@
-
 import Navigation from './Navigation';
 
 interface HeaderProps {
@@ -8,11 +7,13 @@ interface HeaderProps {
 
 function Header({ setCurrentSection, currentSection }: HeaderProps) {
   return (
-    <header className="navbar bg-primary text-primary-content p-4">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">Trinidad Peterson</a>
+    <header className="navbar  text-[#1F3A64;] p-6 shadow-md border-b-2 border-[#B0B0B0]">
+      <div className="   color:#1F3A64">
+        <a className="text-2xl  color:#1F3A64 font-bold tracking-wide hover:text-[#D9A7B5] transition-colors">
+         Maria Renata de la Trinidad Peterson
+        </a>
       </div>
-      <div className="flex-none">
+      <div >
         <Navigation setCurrentSection={setCurrentSection} currentSection={currentSection} />
       </div>
     </header>
