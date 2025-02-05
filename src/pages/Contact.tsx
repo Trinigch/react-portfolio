@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import avatarImage from './../assets/img/hero1.jpeg';
+ import emailjs from '@emailjs/browser';
+ const SERVICE_ID = "service_9nyzw93";  
+ const TEMPLATE_ID = "template_3alafqd";  
+ const USER_ID = 'jFodaExO7SRQKsoqG';  // En EmailJS, ahora se llama "Public Key"
 
 const Container = styled.div`
   width: 100%;
@@ -53,7 +57,7 @@ const StyledInput = styled.input`
   font-size: 16px;
 
   &:focus {
-  background: #000d15;
+    background: #000d15;
     border-color: #1f3a64; /* Azul Marino */
     outline: none;
     box-shadow: 0 0 5px rgba(31, 58, 100, 0.5);
@@ -69,6 +73,7 @@ const StyledTextarea = styled.textarea`
   resize: none;
 
   &:focus {
+    background: #000d15;
     border-color: #1f3a64;
     outline: none;
     box-shadow: 0 0 5px rgba(31, 58, 100, 0.5);
@@ -155,6 +160,49 @@ export default function Contact() {
     }
   };
 
+  // const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   let formIsValid = true;
+  //   const newErrors: Errors = {
+  //     firstName: '',
+  //     lastName: '',
+  //     email: '',
+  //     message: '',
+  //   };
+
+  //   if (!firstName) {
+  //     newErrors.firstName = 'Este campo es obligatorio';
+  //     formIsValid = false;
+  //   }
+  //   if (!lastName) {
+  //     newErrors.lastName = 'Este campo es obligatorio';
+  //     formIsValid = false;
+  //   }
+  //   if (!email) {
+  //     newErrors.email = 'Este campo es obligatorio';
+  //     formIsValid = false;
+  //   } else {
+  //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //     if (!emailRegex.test(email)) {
+  //       newErrors.email = 'Ingrese un correo electrónico válido';
+  //       formIsValid = false;
+  //     }
+  //   }
+  //   if (!message) {
+  //     newErrors.message = 'Este campo es obligatorio';
+  //     formIsValid = false;
+  //   }
+
+  //   setErrors(newErrors);
+
+  //   if (formIsValid) {
+  //     alert(`Hola ${firstName} ${lastName}, tu mensaje ha sido enviado.`);
+  //     setFirstName('');
+  //     setLastName('');
+  //     setEmail('');
+  //     setMessage('');
+  //   }
+  // };
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let formIsValid = true;
@@ -164,7 +212,7 @@ export default function Contact() {
       email: '',
       message: '',
     };
-
+  
     if (!firstName) {
       newErrors.firstName = 'Este campo es obligatorio';
       formIsValid = false;
@@ -187,15 +235,29 @@ export default function Contact() {
       newErrors.message = 'Este campo es obligatorio';
       formIsValid = false;
     }
-
+  
     setErrors(newErrors);
-
+  
     if (formIsValid) {
-      alert(`Hola ${firstName} ${lastName}, tu mensaje ha sido enviado.`);
-      setFirstName('');
-      setLastName('');
-      setEmail('');
-      setMessage('');
+      const templateParams = {
+        from_name: `${firstName} ${lastName}`,
+        from_email: email,
+        message: message,
+      };
+  
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams,  USER_ID)
+        .then((response) => {
+          console.log("Mensaje enviado con éxito:", response);
+          alert(`Hola ${firstName} ${lastName}, tu mensaje ha sido enviado.`);
+          setFirstName('');
+          setLastName('');
+          setEmail('');
+          setMessage('');
+        })
+        .catch((error) => {
+          console.error("Error al enviar el mensaje:", error);
+          alert("Hubo un problema al enviar el mensaje. Inténtalo nuevamente.");
+        });
     }
   };
 
