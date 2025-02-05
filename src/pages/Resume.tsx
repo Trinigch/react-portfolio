@@ -81,7 +81,7 @@ export default function Resume() {
 
   return (
     <Container>
-   
+    <div className="">
       <Title>Resume</Title>
       <DownloadButton href="/path/to/resume.pdf" download>
         Download Resume
@@ -136,7 +136,7 @@ export default function Resume() {
           </a>
         </p>
       </ContactInfo>
-      
+      </div>
     </Container>
   );
 }

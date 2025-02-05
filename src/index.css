@@ -67,7 +67,7 @@ p {
 
 /* Button Styling */
 button {
-  @apply rounded-lg border border-transparent py-2 px-4 text-base font-medium bg-gray-800 text-white transition hover:border-indigo-400;
+  @apply rounded-lg border border-transparent py-2 px-4 text-base font-medium bg-gray-800 text-white transition hover:border-blue-800;
 }
 
 /* Navbar Styling */
@@ -79,9 +79,9 @@ button {
   color:#1F3A64;
 }
 
-a {
-  @apply font-medium text-indigo-500 transition hover:text-indigo-700; /* Link styling with hover */
-}
+ a {
+ color:#1F3A64;; /* Link styling with hover */
+} 
 
 ul,
 ol {
