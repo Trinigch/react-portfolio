@@ -40,7 +40,9 @@ function AboutMe() {
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
        @media (max-width: 550px) {
-        left: 150px; 
+      left: 50%; /* Centra horizontalmente */
+      transform: translateX(-50%); /* Asegura el centrado exacto */
+      top: 30px;
   };
      @media (max-height: 550px) {
         display: none; 
