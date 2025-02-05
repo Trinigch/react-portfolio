@@ -13,6 +13,9 @@ function AboutMe() {
     flex-direction: row;
     overflow: hidden;
     position: relative; /* Permite posicionar el avatar correctamente */
+         @media screen and (max-width: 550px) {
+        flex-direction: col;
+  }
   
   `;
   const ImageContainer = styled.div`
@@ -36,6 +39,10 @@ function AboutMe() {
     height: 120px;
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
+       @media (max-width: 550px) {
+        top: 100px;
+        left: 150px; 
+  }
   `;
   const TextContainer = styled.div`
     flex: 1;
@@ -44,6 +51,10 @@ function AboutMe() {
     display: flex;
     flex-direction: column;
     justify-content: center;
+      @media (max-width: 550px) {
+       padding: 60px;
+       top: 0px;
+  }
   `;
   const Heading = styled.h1`
   font-size: 3rem; /* Aumenta el tamaño para mayor impacto */
