@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backgroundImage from './../assets/img/landscape.jpeg';
+import backgroundImage from './../assets/img/sheep.png';
 import avatarImage from './../assets/img/hero1.jpeg';
 
 function AboutMe() {
@@ -68,28 +68,35 @@ function AboutMe() {
   font-size: 3rem; /* Aumenta el tamaño para mayor impacto */
   font-weight: bold;
   margin-bottom: 20px;
-  color: #1F3A64; /* Azul Marino */
+  color:var(--dark-accent);
   letter-spacing: 1.5px; /* Espaciado para mejor legibilidad */
 `;
 
+// const Paragraph = styled.p`
+//   font-size: 1.5rem; /* Reduce el tamaño para facilitar la lectura */
+//   line-height: 1.8; /* Aumenta el interlineado para mejor espaciado */
+//   margin-bottom: 24px;
+//   color: #213547; /* Gris oscuro para contraste */
+//   text-align: justify; /* Justifica el texto para un look más profesional */
+//   max-width: 800px; /* Limita el ancho del texto para mejorar la legibilidad */
+// `;
 const Paragraph = styled.p`
-  font-size: 1.5rem; /* Reduce el tamaño para facilitar la lectura */
-  line-height: 1.8; /* Aumenta el interlineado para mejor espaciado */
-  margin-bottom: 24px;
-  color: #213547; /* Gris oscuro para contraste */
-  text-align: justify; /* Justifica el texto para un look más profesional */
-  max-width: 800px; /* Limita el ancho del texto para mejorar la legibilidad */
-`;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 2.5rem; /* Ajusta según sea necesario */
+  color:var(--dark-accent);
+//  background-color: #3366CC;
+  padding: 20px;
+  line-height: 1.4;
+  width: fit-content;
+`
   return (
     <Container>
         <div className="min-h-screen w-screen flex items-center justify-center">
       <ImageContainer />
       <Avatar src={avatarImage} alt="Avatar" />
       <TextContainer>
-        <Heading>About Me</Heading>
-        <Paragraph>My name is Maria Renata.I graduated in December 2024 from the UNIVERSITY OF MINNESOTA College of Continuing & Professional Studies with an A grade. I am proficient in technologies such as JavaScript, Node.js, React, Firebase, Express, MySQL, MongoDB, HTML, and CSS.</Paragraph>
-        <Paragraph>In 2016, I completed my master's degree in Electronic Engineering from the University of Buenos Aires.</Paragraph>
-        <Paragraph>I currently reside in Minnesota, where I live on a farm with goats and sheeps</Paragraph>
+        <Heading>Hey, I'm Maria!</Heading>
+        <Paragraph>Hi there! I'm Maria Renata, a Full Stack Developer passionate about building seamless digital experiences, working remotely in Minnesota.</Paragraph>
       </TextContainer>
       </div>
     </Container>

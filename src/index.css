@@ -14,20 +14,6 @@
   font: inherit;
   vertical-align: baseline;
 }
-
-body {
-  line-height: 1;
-  font-family: sans-serif;
-  color: #333;
-  background-color: #b1cde9;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  min-width: 100%;
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
@@ -39,6 +25,20 @@ body {
   --neutral-color:#B0B0B0;/*Del fondo, sugiere neutralidad y equilibrio.*/
   --white-background:#F5F5F5;
 }
+body {
+  line-height: 1;
+  font-family: sans-serif;
+  color: #333;
+  background-color: var(--white-background);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+
 
 /* Light mode adjustments */
 @media (prefers-color-scheme: light) {
@@ -74,6 +74,8 @@ button {
 .navbar {
   @apply w-full flex justify-around p-4 ; /* Responsive layout */
   position: sticky;
+  width: 100%;
+  /*position: fixed;*/
   top: 0;
   z-index: 10;
   color:#1F3A64;
