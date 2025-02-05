@@ -54,6 +54,9 @@ function AboutMe() {
    @media (max-width: 650px) {
     font-size: 2rem; /* Reduce el tamaño para pantallas pequeñas */
   }
+      @media (max-width: 550px) {
+       display:none; /* Reduce el tamaño para pantallas pequeñas */
+  }
 `;
 const Paragraph = styled.p`
   font-family: 'IBM Plex Mono', monospace;

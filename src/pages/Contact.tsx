@@ -37,6 +37,9 @@ const FormContainer = styled.div`
 const InputContainer = styled.div`
   display: block;
   margin-top: 15px;
+  color:var( --light-background);
+  
+   
 `;
 
 const StyledInput = styled.input`
@@ -47,6 +50,7 @@ const StyledInput = styled.input`
   font-size: 16px;
 
   &:focus {
+  background: #000d15;
     border-color: #1f3a64; /* Azul Marino */
     outline: none;
     box-shadow: 0 0 5px rgba(31, 58, 100, 0.5);
