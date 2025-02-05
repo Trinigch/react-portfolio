@@ -41,7 +41,7 @@ const projectsData = [
   {
     title: 'TriviaTitans',
     deployedUrl: 'https://github.com/kyand38/Trivia-Titans.git',
-    githubUrl: 'https://github.com/kyand38/Trivia-Titans.git',
+    githubUrl: 'https://trivia-titans.onrender.com/',
     imageUrl: TriviaTitans,
   },
   {
