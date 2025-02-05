@@ -115,3 +115,37 @@ button {
 a {
   color: #1F3A64; /* Link styling with hover */
 }
+
+/* Footer Styling */
+.footer {
+  font-size: 1.5rem; /* text-2xl */
+  color: var(--dark-accent);
+  padding: 2rem; /* p-8 */
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 3rem; /* space-x-12 equivalente */
+}
+
+.footer a {
+  color: var(--dark-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--light-accent);
+}
+
+/* Responsive Styles */
+@media (max-width: 650px) {
+  .footer {
+    font-size: 1rem; /* text-2xl */
+    color: var(--dark-accent);
+    padding: 2rem; /* p-8 */
+    text-align: center;
+  }
+}

@@ -40,8 +40,10 @@ function AboutMe() {
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
        @media (max-width: 550px) {
-        top: 80px;
         left: 150px; 
+  };
+     @media (max-height: 550px) {
+        display: none; 
   }
   `;
   const TextContainer = styled.div`
@@ -52,7 +54,8 @@ function AboutMe() {
     flex-direction: column;
     justify-content: center;
       @media (max-width: 550px) {
-       padding: 60px;
+       padding: 10px; 
+       text-align: center;
     
   }
   `;
