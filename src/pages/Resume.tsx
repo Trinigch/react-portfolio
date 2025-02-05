@@ -18,23 +18,23 @@ export default function Resume() {
     margin-bottom: 20px;
   `;
 
-  const DownloadButton = styled.a`
-    display: inline-block;
-    padding: 12px 20px;
-    margin-bottom: 30px;
-    background-color: var(--dark-accent);
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+  // const DownloadButton = styled.a`
+  //   display: inline-block;
+  //   padding: 12px 20px;
+  //   margin-bottom: 30px;
+  //   background-color: var(--dark-accent);
+  //   color: #fff;
+  //   font-size: 1.2rem;
+  //   font-weight: bold;
+  //   border-radius: 5px;
+  //   text-decoration: none;
+  //   transition: all 0.3s ease-in-out;
 
-    &:hover {
-      background-color: #153259; /* Un tono más oscuro para el hover */
-      box-shadow: 0 4px 10px rgba(31, 58, 100, 0.3);
-    }
-  `;
+  //   &:hover {
+  //     background-color: #153259; /* Un tono más oscuro para el hover */
+  //     box-shadow: 0 4px 10px rgba(31, 58, 100, 0.3);
+  //   }
+  // `;
 
   const SectionTitle = styled.h2`
     font-size: 2rem;
