@@ -51,6 +51,9 @@ function AboutMe() {
   margin-bottom: 20px;
   color:var(--dark-accent);
   letter-spacing: 1.5px; /* Espaciado para mejor legibilidad */
+   @media (max-width: 650px) {
+    font-size: 2rem; /* Reduce el tamaño para pantallas pequeñas */
+  }
 `;
 const Paragraph = styled.p`
   font-family: 'IBM Plex Mono', monospace;
@@ -59,6 +62,9 @@ const Paragraph = styled.p`
   padding: 20px;
   line-height: 1.4;
   width: fit-content;
+    @media (max-width: 650px) {
+    font-size: 1.8rem; /* Reduce el tamaño para pantallas pequeñas */
+  }
 `
   return (
     <Container>

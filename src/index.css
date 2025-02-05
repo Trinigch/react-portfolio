@@ -47,7 +47,27 @@ body {
   }
 }
 
-/* Navbar Styling */
+/* Header Styling */
+.navbar {
+  @apply w-full flex justify-around p-4;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #1F3A64;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   /* Adding border to navbar */
+  background-color: var(--white-background); /* Ensure background color */
+}
+
+.navbar-title {
+  color: #1F3A64;
+}
+
+.header-title {
+  @apply text-2xl font-bold tracking-wide hover:text-[#D9A7B5] transition-colors;
+}
+
+/* Navigation Styling */
 .navbar-links {
   @apply flex space-x-4 font-bold tracking-wide hover:text-[#D9A7B5] transition-colors;
 }
@@ -63,8 +83,7 @@ body {
 
 .navbar-item.active {
   font-weight: bold;
-  /*background-color: var(--light-accent); /* Change background for active item */
-  border-bottom: 1px solid #1F3A64;
+  border-bottom: 2px solid #1F3A64; /* Add underline to active item */
 }
 
 /* Responsive Styles */
@@ -92,16 +111,7 @@ button {
   @apply rounded-lg border border-transparent py-2 px-4 text-base font-medium bg-gray-800 text-white transition hover:border-blue-800;
 }
 
-/* Navbar Styling */
-.navbar {
-  @apply w-full flex justify-around p-4;
-  position: sticky;
-  width: 100%;
-  top: 0;
-  z-index: 10;
-  color: #1F3A64;
-}
-
+/* Navbar Link Styling */
 a {
   color: #1F3A64; /* Link styling with hover */
 }
