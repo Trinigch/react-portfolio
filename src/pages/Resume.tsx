@@ -83,9 +83,9 @@ export default function Resume() {
     <Container>
     <div className="">
       <Title>Resume</Title>
-      <DownloadButton href="/path/to/resume.pdf" download>
+      {/* <DownloadButton href="/path/to/resume.pdf" download>
         Download Resume
-      </DownloadButton>
+      </DownloadButton> */}
 
       <SectionTitle>Personal Profile</SectionTitle>
       <Paragraph>
