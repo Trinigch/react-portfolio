@@ -47,6 +47,9 @@ Error generating stack: `+i.message+`
     flex-direction: row;
     overflow: hidden;
     position: relative; /* Permite posicionar el avatar correctamente */
+         @media screen and (max-width: 550px) {
+        flex-direction: col;
+  }
   
   `,t=D.div`
     flex: 1;
@@ -69,7 +72,8 @@ Error generating stack: `+i.message+`
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
        @media (max-width: 550px) {
-       left: 200px;
+        top: 100px;
+        left: 150px; 
   }
   `,r=D.div`
     flex: 1;
@@ -79,8 +83,8 @@ Error generating stack: `+i.message+`
     flex-direction: column;
     justify-content: center;
       @media (max-width: 550px) {
-       padding:20px;
-       position: relative;
+       padding: 60px;
+       top: 0px;
   }
   `,l=D.h1`
   font-size: 3rem; /* Aumenta el tamaño para mayor impacto */

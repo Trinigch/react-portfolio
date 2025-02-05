@@ -40,7 +40,7 @@ function AboutMe() {
     border-radius: 50%;
     border: 4px solid #F5F5F5; /* Borde blanco */
        @media (max-width: 550px) {
-        top: 100px;
+        top: 80px;
         left: 150px; 
   }
   `;
@@ -53,7 +53,7 @@ function AboutMe() {
     justify-content: center;
       @media (max-width: 550px) {
        padding: 60px;
-       top: 0px;
+    
   }
   `;
   const Heading = styled.h1`
@@ -78,6 +78,9 @@ const Paragraph = styled.p`
   width: fit-content;
     @media (max-width: 650px) {
     font-size: 1.8rem; /* Reduce el tamaño para pantallas pequeñas */
+  }
+       @media (max-width: 450px) {
+    font-size: 1.5rem; /* Reduce el tamaño para pantallas pequeñas */
   }
 `
   return (
