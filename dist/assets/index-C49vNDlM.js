@@ -290,7 +290,7 @@ border: 4px solid #F5F5F5; /* Borde blanco */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   `,r=D.div`
     width: 100%;
     max-width: 800px; /* Define un ancho menor dentro del Resume */
@@ -302,7 +302,7 @@ border: 4px solid #F5F5F5; /* Borde blanco */
     color: #1f3a64; /* Azul Marino */
     margin-bottom: 20px;
   `,i=D.h2`
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--dark-accent);
     margin-top: 30px;
     margin-bottom: 15px;
@@ -312,6 +312,7 @@ border: 4px solid #F5F5F5; /* Borde blanco */
   `,o=D.p`
     font-size: 1.4rem;
     line-height: 1.8;
+      text-align: left;
     margin-bottom: 24px;
     color: #213547;
      @media(max-width:650px){
@@ -322,6 +323,9 @@ border: 4px solid #F5F5F5; /* Borde blanco */
     padding-left: 25px;
     font-size: 1.4rem;
     line-height: 1.8;
+    @media(max-width:650px){
+     font-size:1rem;
+     };
   `,s=D.div`
     font-size: 1.3rem;
     line-height: 1.8;

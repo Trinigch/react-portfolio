@@ -94,8 +94,8 @@ const Paragraph = styled.p`
       <ImageContainer />
       <Avatar src={avatarImage} alt="Avatar" />
       <TextContainer>
-        <Heading>Hey, I'm Maria!</Heading>
-        <Paragraph>Hi there! I'm Maria Renata, a Full Stack Developer passionate about building seamless digital experiences, working remotely in Minnesota.</Paragraph>
+        <Heading>Hey, I'm Trinidad!</Heading>
+        <Paragraph>Hi there! I'm a Full Stack Developer, passionate about building seamless digital experiences.</Paragraph>
       </TextContainer>
       </div>
     </Container>

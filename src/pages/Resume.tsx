@@ -50,7 +50,7 @@ export default function Resume() {
   `;
 
   const SectionTitle = styled.h2`
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--dark-accent);
     margin-top: 30px;
     margin-bottom: 15px;
@@ -74,7 +74,10 @@ export default function Resume() {
     text-align: left;
     padding-left: 25px;
     font-size: 1.4rem;
-    line-height: 1.8;
+    line-height: 1.6;
+    @media(max-width:650px){
+     font-size:1rem;
+     };
   `;
 
   const ContactInfo = styled.div`
