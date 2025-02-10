@@ -32,7 +32,7 @@ export default function Resume() {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
   `;
 
   const ContentWrapper = styled.div`
@@ -62,9 +62,9 @@ export default function Resume() {
   const Paragraph = styled.p`
     font-size: 1.4rem;
     line-height: 1.8;
+      text-align: left;
     margin-bottom: 24px;
     color: #213547;
-    text-align: justify;
      @media(max-width:650px){
      font-size:1rem;
      }`;

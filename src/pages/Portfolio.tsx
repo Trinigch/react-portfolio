@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Project from '../components/Project'; 
-import Job1 from './../assets/img/Gallery.png';
+//import Job1 from './../assets/img/Gallery.png';
 import BookSearch from './../assets/img/login.png';
 import TriviaTitans from './../assets/img/bg2.png';
 import ThemedTimer from './../assets/img/Themed-Timer.png';
@@ -56,13 +56,7 @@ const projectsData = [
     githubUrl: 'https://github.com/Trinigch/Weather-Dashboard.git',
     imageUrl: WeatherDashboard,
   },
-  {
-    title: 'Gallery Project',
-    deployedUrl: 'https://trinigch.github.io/Galery/',
-    githubUrl: 'https://github.com/Trinigch/Galery',
-    imageUrl: Job1,
-    
-  },
+ 
 ];
 
 export default function Portfolio() {
