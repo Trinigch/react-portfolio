@@ -6,6 +6,8 @@ import TriviaTitans from './../assets/img/bg2.png';
 import ThemedTimer from './../assets/img/Themed-Timer.png';
 import WeatherDashboard from './../assets/img/WeatherDashboard.png';
 
+import WeddingPage from './../assets/img/weddingpage.png';
+
 
 const Container = styled.div`
   width: 100%;
@@ -31,6 +33,12 @@ const Title = styled.h1`
 `;
 
 const projectsData = [
+  {
+    title: 'WeddingPage',
+    deployedUrl: 'https://triniandjeremiah.netlify.app/',
+    githubUrl: 'https://github.com/Trinigch/WeddingPage.git',
+    imageUrl: WeddingPage,
+  },
  
   {
     title: 'Book-Search-Engine',
