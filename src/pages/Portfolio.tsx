@@ -7,7 +7,7 @@ import ThemedTimer from './../assets/img/Themed-Timer.png';
 import WeatherDashboard from './../assets/img/WeatherDashboard.png';
 
 import WeddingPage from './../assets/img/weddingpage.png';
-
+import Wedding from './../assets/img/wedding.png';
 
 const Container = styled.div`
   width: 100%;
@@ -33,6 +33,12 @@ const Title = styled.h1`
 `;
 
 const projectsData = [
+    {
+    title: 'Wedding',
+    deployedUrl: 'https://jeremiahandtriniwedding.onrender.com/about-wedding/',
+    githubUrl: 'https://github.com/Trinigch/Wedding.git',
+    imageUrl: Wedding,
+  },
   {
     title: 'WeddingPage',
     deployedUrl: 'https://triniandjeremiah.netlify.app/',
