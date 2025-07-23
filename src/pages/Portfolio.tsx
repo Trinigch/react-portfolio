@@ -8,6 +8,7 @@ import WeatherDashboard from './../assets/img/WeatherDashboard.png';
 
 import WeddingPage from './../assets/img/weddingpage.png';
 import Wedding from './../assets/img/wedding.png';
+import Alternative from './../assets/img/alternatterapy.png';
 
 const Container = styled.div`
   width: 100%;
@@ -33,6 +34,12 @@ const Title = styled.h1`
 `;
 
 const projectsData = [
+      {
+    title: 'Alternative Therapy',
+    deployedUrl: 'https://therapya.netlify.app/',
+    githubUrl: 'https://github.com/Trinigch/TerapiaAlternativa.git',
+    imageUrl: Alternative ,
+  },
     {
     title: 'Wedding',
     deployedUrl: 'https://jeremiahandtriniwedding.onrender.com/about-wedding/',
