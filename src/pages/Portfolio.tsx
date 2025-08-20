@@ -10,6 +10,8 @@ import WeddingPage from './../assets/img/weddingpage.png';
 import Wedding from './../assets/img/wedding.png';
 import Alternative from './../assets/img/alternatterapy.png';
 
+import Farm from './../assets/img/Farm.png';
+
 const Container = styled.div`
   width: 100%;
   margin: auto;
@@ -34,6 +36,12 @@ const Title = styled.h1`
 `;
 
 const projectsData = [
+       {
+    title: 'Farm Traker',
+    deployedUrl: 'https://farm-9og5.onrender.com/aboutFarm',
+    githubUrl: 'https://github.com/Trinigch/Farm.git',
+    imageUrl: Farm ,
+  },
       {
     title: 'Alternative Therapy',
     deployedUrl: 'https://therapya.netlify.app/',
