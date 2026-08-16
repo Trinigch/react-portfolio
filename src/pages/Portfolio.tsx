@@ -11,6 +11,7 @@ import Wedding from './../assets/img/wedding.png';
 import Alternative from './../assets/img/alternatterapy.png';
 
 import Farm from './../assets/img/Farm.png';
+import VVF from "./../assets/img/vvf.png"
 
 const Container = styled.div`
   width: 100%;
@@ -36,6 +37,13 @@ const Title = styled.h1`
 `;
 
 const projectsData = [
+
+    {
+    title: 'Veteran Valor Farm',
+    deployedUrl: 'https://veteranvalorfarm.org/',
+    githubUrl: 'https://github.com/Trinigch/veteran-valor-farm-react.git',
+    imageUrl: VVF ,
+  },
        {
     title: 'Farm Traker',
     deployedUrl: 'https://farm-9og5.onrender.com/aboutFarm',
