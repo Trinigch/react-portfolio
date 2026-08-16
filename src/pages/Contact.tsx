@@ -1,114 +1,17 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import avatarImage from './../assets/img/hero1.jpeg';
- import emailjs from '@emailjs/browser';
- const SERVICE_ID = "service_9nyzw93";  
- const TEMPLATE_ID = "template_3alafqd";  
- const USER_ID = 'jFodaExO7SRQKsoqG';  // En EmailJS, ahora se llama "Public Key"
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import "./Contact.css";
 
-const Container = styled.div`
-  width: 100%;
-  margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  position: relative;
+const SERVICE_ID = "service_9nyzw93";
+const TEMPLATE_ID = "template_3alafqd";
+const USER_ID = "jFodaExO7SRQKsoqG";
 
-`;
-const Avatar = styled.img`
-position: absolute;
-top: 20px; /* Ajusta la posición vertical */
-left: 20px; /* Ajusta la posición horizontal */
-width: 120px;
-height: 120px;
-border-radius: 50%;
-border: 4px solid #F5F5F5; /* Borde blanco */
-@media (max-height: 550px) {
-        display: none; 
-  }
-`;
-
-
-const FormContainer = styled.div`
-  margin: 20px;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #e6d7c5; /* Beige Claro */
-  max-width: 800px;
-  width: 100%;
-`;
-
-const InputContainer = styled.div`
-  display: block;
-  margin-top: 15px;
-  color:var( --light-background);
-  
-   
-`;
-
-const StyledInput = styled.input`
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #b0b0b0; /* Gris Neutro */
-  border-radius: 5px;
-  font-size: 16px;
-
-  &:focus {
-    background: #000d15;
-    border-color: #1f3a64; /* Azul Marino */
-    outline: none;
-    box-shadow: 0 0 5px rgba(31, 58, 100, 0.5);
-  }
-`;
-
-const StyledTextarea = styled.textarea`
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #b0b0b0;
-  border-radius: 5px;
-  font-size: 16px;
-  resize: none;
-
-  &:focus {
-    background: #000d15;
-    border-color: #1f3a64;
-    outline: none;
-    box-shadow: 0 0 5px rgba(31, 58, 100, 0.5);
-  }
-`;
-
-const StyledButton = styled.button`
-  margin-top: 20px;
-  padding: 12px;
-  background-color: var(--light-accent); /* Rosa suave */
-  color:  #E6D7C5; /* Blanco para el texto */
-   border: 2px solid var(--light-accent);
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-
-  &:hover {
-    background-color: var(--dark-accent); /* Azul Marino en hover */
-    box-shadow: 0 0 5px rgba(31, 58, 100, 0.5); /* Agregar sombra para el hover */
-  }
-`;
-
-const ErrorMessage = styled.p`
-  color: red;
-  font-size: 14px;
-  margin: 5px 0 0;
-`;
-
-const Title = styled.h1`
-  color: #1f3a64; /* Azul Marino */
-  font-size: 36px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
-`;
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+}
 
 interface Errors {
   firstName: string;
@@ -117,207 +20,275 @@ interface Errors {
   message: string;
 }
 
-export default function Contact() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [errors, setErrors] = useState<Errors>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: '',
-  });
+const initialFormData: FormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  message: "",
+};
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+const initialErrors: Errors = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  message: "",
+};
+
+const Contact = () => {
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [errors, setErrors] = useState<Errors>(initialErrors);
+  const [isSending, setIsSending] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [sendError, setSendError] = useState("");
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
 
-    if (name === 'firstName') {
-      setFirstName(value);
-      setErrors((prev) => ({ ...prev, firstName: '' }));
-    } else if (name === 'lastName') {
-      setLastName(value);
-      setErrors((prev) => ({ ...prev, lastName: '' }));
-    } else if (name === 'email') {
-      setEmail(value);
-      setErrors((prev) => ({ ...prev, email: '' }));
-    } else if (name === 'message') {
-      setMessage(value);
-      setErrors((prev) => ({ ...prev, message: '' }));
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [name]: "",
+    }));
+
+    setSuccessMessage("");
+    setSendError("");
   };
 
-  const handleBlur = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  const validateField = (name: string, value: string): string => {
+    const trimmedValue = value.trim();
 
-    if (!value) {
-      setErrors((prev) => ({ ...prev, [name]: 'Este campo es obligatorio' }));
-    } else if (name === 'email') {
+    if (!trimmedValue) {
+      return "This field is required.";
+    }
+
+    if (name === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(value)) {
-        setErrors((prev) => ({ ...prev, email: 'Ingrese un correo electrónico válido' }));
+
+      if (!emailRegex.test(trimmedValue)) {
+        return "Please enter a valid email address.";
       }
     }
+
+    return "";
   };
 
-  // const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   let formIsValid = true;
-  //   const newErrors: Errors = {
-  //     firstName: '',
-  //     lastName: '',
-  //     email: '',
-  //     message: '',
-  //   };
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
 
-  //   if (!firstName) {
-  //     newErrors.firstName = 'Este campo es obligatorio';
-  //     formIsValid = false;
-  //   }
-  //   if (!lastName) {
-  //     newErrors.lastName = 'Este campo es obligatorio';
-  //     formIsValid = false;
-  //   }
-  //   if (!email) {
-  //     newErrors.email = 'Este campo es obligatorio';
-  //     formIsValid = false;
-  //   } else {
-  //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //     if (!emailRegex.test(email)) {
-  //       newErrors.email = 'Ingrese un correo electrónico válido';
-  //       formIsValid = false;
-  //     }
-  //   }
-  //   if (!message) {
-  //     newErrors.message = 'Este campo es obligatorio';
-  //     formIsValid = false;
-  //   }
+    setErrors((prev) => ({
+      ...prev,
+      [name]: validateField(name, value),
+    }));
+  };
 
-  //   setErrors(newErrors);
-
-  //   if (formIsValid) {
-  //     alert(`Hola ${firstName} ${lastName}, tu mensaje ha sido enviado.`);
-  //     setFirstName('');
-  //     setLastName('');
-  //     setEmail('');
-  //     setMessage('');
-  //   }
-  // };
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    let formIsValid = true;
+  const validateForm = (): boolean => {
     const newErrors: Errors = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      message: '',
+      firstName: validateField("firstName", formData.firstName),
+      lastName: validateField("lastName", formData.lastName),
+      email: validateField("email", formData.email),
+      message: validateField("message", formData.message),
     };
-  
-    if (!firstName) {
-      newErrors.firstName = 'Este campo es obligatorio';
-      formIsValid = false;
-    }
-    if (!lastName) {
-      newErrors.lastName = 'Este campo es obligatorio';
-      formIsValid = false;
-    }
-    if (!email) {
-      newErrors.email = 'Este campo es obligatorio';
-      formIsValid = false;
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        newErrors.email = 'Ingrese un correo electrónico válido';
-        formIsValid = false;
-      }
-    }
-    if (!message) {
-      newErrors.message = 'Este campo es obligatorio';
-      formIsValid = false;
-    }
-  
+
     setErrors(newErrors);
-  
-    if (formIsValid) {
-      const templateParams = {
-        from_name: `${firstName} ${lastName}`,
-        from_email: email,
-        message: message,
-      };
-  
-      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams,  USER_ID)
-        .then((response) => {
-          console.log("Mensaje enviado con éxito:", response);
-          alert(`Hola ${firstName} ${lastName}, tu mensaje ha sido enviado.`);
-          setFirstName('');
-          setLastName('');
-          setEmail('');
-          setMessage('');
-        })
-        .catch((error) => {
-          console.error("Error al enviar el mensaje:", error);
-          alert("Hubo un problema al enviar el mensaje. Inténtalo nuevamente.");
-        });
+
+    return !Object.values(newErrors).some((error) => error !== "");
+  };
+
+  const handleFormSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    setSuccessMessage("");
+    setSendError("");
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSending(true);
+
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        USER_ID
+      );
+
+      setSuccessMessage(
+        `Thank you, ${formData.firstName}! Your message has been sent successfully.`
+      );
+
+      setFormData(initialFormData);
+      setErrors(initialErrors);
+    } catch (error) {
+      console.error("Error sending message:", error);
+
+      setSendError(
+        "There was a problem sending your message. Please try again."
+      );
+    } finally {
+      setIsSending(false);
     }
   };
 
   return (
-    <Container>
-      <div className="min-h-screen w-screen flex items-center justify-center">
-      <Avatar src={avatarImage} alt="Avatar" />
-      <div className="min-h-screen w-screen flex items-center justify-center">
-        <FormContainer>
-          <Title>Contact Me</Title>
-          <form onSubmit={handleFormSubmit}>
-            <InputContainer>
-              <StyledInput
-                value={firstName}
+    <main className="contact-page">
+      <section className="contact-container">
+
+        <div className="contact-intro">
+          <span className="contact-eyebrow">GET IN TOUCH</span>
+
+          <h1>Contact Me</h1>
+
+          <p>
+            Have a question, project idea, or opportunity?
+            Feel free to get in touch. I would be happy to hear from you.
+          </p>
+        </div>
+
+        <form
+          className="contact-form"
+          onSubmit={handleFormSubmit}
+          noValidate
+        >
+
+          <div className="form-row">
+
+            <div className="form-field">
+              <label htmlFor="firstName">
+                First Name
+              </label>
+
+              <input
+                id="firstName"
                 name="firstName"
+                type="text"
+                value={formData.firstName}
                 onChange={handleInputChange}
                 onBlur={handleBlur}
-                type="text"
                 placeholder="First Name"
+                className={errors.firstName ? "input-error" : ""}
               />
-              {errors.firstName && <ErrorMessage>{errors.firstName}</ErrorMessage>}
-            </InputContainer>
-            <InputContainer>
-              <StyledInput
-                value={lastName}
+
+              {errors.firstName && (
+                <span className="field-error">
+                  {errors.firstName}
+                </span>
+              )}
+            </div>
+
+            <div className="form-field">
+              <label htmlFor="lastName">
+                Last Name
+              </label>
+
+              <input
+                id="lastName"
                 name="lastName"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
                 type="text"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                onBlur={handleBlur}
                 placeholder="Last Name"
+                className={errors.lastName ? "input-error" : ""}
               />
-              {errors.lastName && <ErrorMessage>{errors.lastName}</ErrorMessage>}
-            </InputContainer>
-            <InputContainer>
-              <StyledInput
-                value={email}
-                name="email"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                type="email"
-                placeholder="Email Address"
-              />
-              {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
-            </InputContainer>
-            <InputContainer>
-              <StyledTextarea
-                value={message}
-                name="message"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                placeholder="Your Message"
-                rows={4}
-              />
-              {errors.message && <ErrorMessage>{errors.message}</ErrorMessage>}
-            </InputContainer>
-            <StyledButton type="submit">Send Message</StyledButton>
-          </form>
-        </FormContainer>
-      </div>
-      </div>
-    </Container>
+
+              {errors.lastName && (
+                <span className="field-error">
+                  {errors.lastName}
+                </span>
+              )}
+            </div>
+
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="email">
+              Email Address
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              placeholder="you@example.com"
+              className={errors.email ? "input-error" : ""}
+            />
+
+            {errors.email && (
+              <span className="field-error">
+                {errors.email}
+              </span>
+            )}
+          </div>
+
+          <div className="form-field">
+            <label htmlFor="message">
+              Message
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              placeholder="Tell me a little about your project or question..."
+              rows={6}
+              className={errors.message ? "input-error" : ""}
+            />
+
+            {errors.message && (
+              <span className="field-error">
+                {errors.message}
+              </span>
+            )}
+          </div>
+
+          {successMessage && (
+            <div className="form-success">
+              {successMessage}
+            </div>
+          )}
+
+          {sendError && (
+            <div className="form-send-error">
+              {sendError}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="contact-submit"
+            disabled={isSending}
+          >
+            {isSending ? "Sending..." : "Send Message"}
+          </button>
+
+        </form>
+
+      </section>
+    </main>
   );
-}
+};
+
+export default Contact;

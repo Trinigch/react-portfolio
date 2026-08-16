@@ -1,176 +1,238 @@
-import styled from 'styled-components';
-import avatarImage from './../assets/img/hero1.jpeg';
+import "./Resume.css";
 
-export default function Resume() {
-  const Container = styled.div`
-    width: 100%;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    background-color: var(--white-background);   
-    text-align: center;
-    position: relative;
-  `;
-  
-  const Avatar = styled.img`
-    position: absolute;
-    top: 20px; /* Ajusta la posición vertical */
-    left: 20px; /* Ajusta la posición horizontal */
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #F5F5F5; /* Borde blanco */
-  `;
-
-  const ResumeContainer = styled.div`
-    width: 90%;
-    max-width: 900px;
-    margin: 100px auto 40px; /* Margen superior para evitar que quede pegado al nav */
-    padding: 40px;
-    background-color: var(--white-background);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-  `;
-
-  const ContentWrapper = styled.div`
-    width: 100%;
-    max-width: 800px; /* Define un ancho menor dentro del Resume */
-    padding: 20px;
-    background-color: var(--white-background);
-    border-radius: 8px;
-  `;
-
-  const Title = styled.h1`
-    font-size: 3rem;
-    color: #1f3a64; /* Azul Marino */
-    margin-bottom: 20px;
-  `;
-
-  const SectionTitle = styled.h2`
-    font-size: 1.8rem;
-    color: var(--dark-accent);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    text-align: left;
-    border-bottom: 2px solid var(--neutral-color);
-    padding-bottom: 5px;
-  `;
-
-  const Paragraph = styled.p`
-    font-size: 1.4rem;
-    line-height: 1.8;
-      text-align: left;
-    margin-bottom: 24px;
-    color: #213547;
-     @media(max-width:650px){
-     font-size:1rem;
-     }`;
-
-  const SkillsList = styled.ul`
-    list-style-type: disc;
-    text-align: left;
-    padding-left: 25px;
-    font-size: 1.4rem;
-    line-height: 1.6;
-    @media(max-width:650px){
-     font-size:1rem;
-     };
-  `;
-
-  const ContactInfo = styled.div`
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin-top: 20px;
-    text-align: center;
-
-    a {
-      color: var(--dark-accent);
-      text-decoration: none;
-      font-weight: bold;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  `;
-
+const Resume = () => {
   return (
-    <Container>
-      <div className="min-h-screen w-screen flex items-center justify-center">
-        <Avatar src={avatarImage} alt="Avatar" />
-        <ResumeContainer>
-          <Title>Resume</Title>
-          <ContentWrapper>
+    <main className="resume-page">
+      <div className="resume-container">
+        <header className="resume-header">
+          <h1>Resume</h1>
+          <p>Full Stack Web Developer | Electronic Engineer</p>
+        </header>
 
-            <SectionTitle>Personal Profile</SectionTitle>
-            <Paragraph>
-              Accomplished Full Stack Web Developer with a strong background in Electronic Engineering and a passion for innovative solutions. With over 4 years of experience in software development, I am adept at building and shipping full-stack software applications using TypeScript, Node.js, React, and AWS. I bring expertise in cloud computing, agile development, and creating seamless user experiences. Known for my problem-solving abilities, attention to detail, and collaborative work ethic, I thrive in fast-paced, dynamic startup environments.
-            </Paragraph>
+        <section className="resume-section">
+          <h2>Professional Summary</h2>
+          <p>
+            Accomplished Full Stack Web Developer with a background in Electronic
+            Engineering and a strong passion for software development. With 3 years
+            of experience, I specialize in building scalable full-stack applications
+            using TypeScript, Node.js, React, and AWS. Proficient in cloud computing,
+            API development, and database management. Adept at working in agile teams,
+            problem-solving, and optimizing user experiences. Eager to contribute my
+            skills in fintech and financial wellness solutions.
+          </p>
+        </section>
 
-            <SectionTitle>Technical Skills</SectionTitle>
-            <SkillsList>
-              <li>Languages: HTML, CSS, JavaScript, SQL, NoSQL</li>
-              <li>Frontend Development: HTML5, CSS3, JavaScript, React, jQuery, Bootstrap, AJAX, Progressive Web Apps</li>
-              <li>Backend Development: Node.js, Express.js, RESTful APIs, MVC Paradigm, GraphQL (Apollo Server/Client)</li>
-              <li>Databases: SQL, MongoDB, Sequelize, SQLite</li>
-              <li>Full Stack Expertise: MERN Stack</li>
-              <li>Cloud & Deployment: Firebase, Azure, Render</li>
-              <li>Version Control & Collaboration: Git, GitHub, Agile Development, Team Collaboration</li>
-              <li>Development Practices: API communication, responsive design, cloud-based services, testing, debugging, performance optimization</li>
-              <li>Additional Skills: Computer science fundamentals, project demonstration, storytelling, and progressive web app development</li>
-            </SkillsList>
+        <section className="resume-section">
+          <h2>Technical Skills</h2>
+          <div className="skills-grid">
+            <div><strong>Languages:</strong> JavaScript, TypeScript, HTML, CSS, SQL, NoSQL, C#, PHP</div>
+            <div><strong>Frontend:</strong> React.js, Next.js, Tailwind CSS, jQuery, Bootstrap, Progressive Web Apps</div>
+            <div><strong>Backend:</strong> Node.js, Express.js, RESTful APIs, GraphQL (Apollo Server/Client), .NET (C#)</div>
+            <div><strong>Databases:</strong> PostgreSQL, MongoDB, Sequelize, SQLite</div>
+            <div><strong>Cloud & Deployment:</strong> AWS, Render, Firebase, Azure</div>
+            <div><strong>DevOps & Tools:</strong> Docker, Git, GitHub, CI/CD Pipelines, GitHub Actions</div>
+            <div><strong>Testing:</strong> Jest, Mocha</div>
+            <div><strong>Development Practices:</strong> Agile, API design, performance optimization, scalability, security best practices</div>
+          </div>
+        </section>
 
-            <SectionTitle>Experience</SectionTitle>
-            <Paragraph>
-              <strong>Full Stack Developer</strong><br />
-              Epidata | Jul 2021 – Feb 2024<br />
-              Led full-stack development, building scalable and maintainable web applications with Node.js and React. Worked in an agile team, contributing to product design, development, and deployment on cloud platforms (Azure, Render). Improved post-deployment quality by implementing best practices, reducing bugs, and enhancing user experience. Quickly adapted to new technologies and challenges, receiving recognition for outstanding performance.
-            </Paragraph>
+        <section className="resume-section">
+          <h2>Relevant Work Experience</h2>
 
-            <SectionTitle>Additional Work Experience</SectionTitle>
-            <Paragraph>
-              <strong>Project Engineer</strong><br />
-              Conuar | Jan 2018 - Jul 2021<br />
-              Developed software solutions using Visual Studio and JavaScript, with a focus on SQLite database management. Created a fault detection system for surface devices, incorporating deep learning techniques to improve automation. Enhanced object identification and automation processes through advanced machine learning techniques.
-            </Paragraph>
+          <article className="resume-item">
+            <div className="resume-item-heading">
+              <h3>Epidata</h3>
+              <span>Jul 2021 – Feb 2024</span>
+            </div>
+            <h4>Full Stack Developer | Client: Galeno – Healthcare/Healthtech</h4>
+            <p className="location">Buenos Aires, Argentina</p>
+            <ul>
+              <li>
+                Developed and maintained scalable web and mobile applications using
+                Next.js, Node.js, and React Native, enhancing the digital experience
+                for healthcare users.
+              </li>
+              <li>
+                Collaborated within an agile team (Scrum) to deploy cloud-native
+                solutions on AWS, Azure, and Render, significantly reducing system
+                bugs and improving codebase maintainability.
+              </li>
+              <li>
+                Designed dynamic UI components and implemented responsive design
+                strategies, ensuring pixel-perfect rendering across diverse mobile
+                and desktop screen sizes.
+              </li>
+              <li>
+                Resolved critical API integration and data synchronization bugs,
+                ensuring accurate and seamless real-time data transmission between
+                backend systems and front-end interfaces.
+              </li>
+            </ul>
+          </article>
 
-            <SectionTitle>Projects</SectionTitle>
-            <Paragraph>
-              <strong>Trivia Titans:</strong><br />
-              Trivia Titans is a trivia game platform with three game modes, profile editing, and leaderboards, powered by the Quizmania API and JWT-secured authentication.<br />
-              Tools/Languages Used: React, GraphQL, MongoDB, JWT, Apollo Server, Quizmania API.<br />
-              [Trivia Titans GitHub](https://www.triviatitans.com)
-            </Paragraph>
+          <article className="resume-item">
+            <div className="resume-item-heading">
+              <h3>Conuar</h3>
+              <span>January 2018 – Jul 2021</span>
+            </div>
+            <h4>Deep Learning & Computer Vision Engineer (R&D)</h4>
+            <ul>
+              <li>
+                Developed an end-to-end defect detection framework for uranium
+                pellets using Deep Learning methods to replace manual quality control.
+              </li>
+              <li>
+                Implemented Convolutional Autoencoders in Google Colab to learn
+                features of defect-free pellets and classify anomalies based on
+                reconstruction error metrics.
+              </li>
+              <li>
+                Built embedded vision applications using OpenCV and Python on
+                Raspberry Pi 3, achieving automated, high-precision surface inspections.
+              </li>
+              <li>
+                Modernized PLC/Automation systems for critical industrial machinery
+                including Graphite Furnace, Beryllium Metallizer, and LPA tray transport.
+              </li>
+              <li>
+                Handled stakeholder communication, budget estimation with equipment
+                providers, and drafted rigorous technical compliance documentation.
+              </li>
+            </ul>
+          </article>
+        </section>
 
-            <SectionTitle>Education</SectionTitle>
-            <Paragraph>
-              <strong>Boot Camp Certificate:</strong><br />
-              University of Minnesota, Minneapolis, MN | December 2024<br />
-              A 12-week intensive program focused on developing technical programming skills in HTML, CSS, Git, JavaScript, Bootstrap, the DOM, APIs, jQuery, JSON, and AJAX. It emphasizes team collaboration, agile development, and project demonstration and storytelling. Expertise in Node.js, ES6, object-oriented programming, Express.js, SQL, the MVC paradigm, Sequelize, and testing. Progressive Web Apps, React, NoSQL, the MERN stack, and computer science.
-            </Paragraph>
-            <Paragraph>
-              <strong>Master’s Degree in Electronic Engineering:</strong><br />
-              University of Buenos Aires, Buenos Aires, Argentina | December 2016
-            </Paragraph>
+        <section className="resume-section">
+          <h2>Projects</h2>
 
-            <SectionTitle>Contact Me</SectionTitle>
-            <ContactInfo>
-              <p>Minneapolis, MN, United States</p>
-              <p>+1 (651) 382-6116</p>
-              <p><a href="mailto:trinigch@gmail.com">trinigch@gmail.com</a></p>
-              <p>
-                <a href="https://www.linkedin.com/in/trinidad-peterson-35564211" target="_blank" rel="noopener noreferrer">
-                  LinkedIn Profile
-                </a>
-              </p>
-            </ContactInfo>
+          <article className="resume-item project-item">
+            <h3>jeremiahandtriniwedding</h3>
+            <p>
+              Responsive wedding website developed to share event information, RSVP
+              details, photo gallery, location, and personalized content for guests.
+              Implemented dynamic frontend components, responsive UI design, and
+              interactive user experience features.
+            </p>
+            <p>
+              Built and customized the frontend using React, integrating responsive
+              layouts and reusable components to provide a smooth experience across
+              desktop and mobile devices.
+            </p>
+            <p><strong>Tools/Languages:</strong> React, JavaScript, HTML, CSS, Node.js.</p>
+            <a
+              href="https://jeremiahandtriniwedding.onrender.com/about-wedding/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project
+            </a>
+          </article>
 
-          </ContentWrapper>
-        </ResumeContainer>
+          <article className="resume-item project-item">
+            <h3>Farm Tracker</h3>
+            <p>
+              Responsive and dynamic web platform designed for managing, visualizing,
+              and disseminating information related to agricultural activities and farms.
+              Implemented interactive frontend components, an adaptive user interface
+              design, and optimized features to enhance the user experience across
+              both rural and urban environments.
+            </p>
+            <p>
+              Built and customized the frontend using React, integrating reusable
+              components and fluid layouts to ensure seamless performance on desktop
+              and mobile devices.
+            </p>
+            <p><strong>Tools/Languages:</strong> React, JavaScript, HTML, CSS, Node.js.</p>
+            <a
+              href="https://farm-9og5.onrender.com/aboutFarm"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project
+            </a>
+          </article>
+
+          <article className="resume-item project-item">
+            <h3>Veteran Valor Farm</h3>
+
+            <p>
+              Responsive nonprofit website developed for Veteran Valor Farm, an
+              organization supporting veterans through agriculture, community,
+              and skill development. The website provides information about the
+              organization's mission, programs, application process, and ways to
+              support the organization.
+            </p>
+
+            <p>
+              Designed and developed the frontend using React and TypeScript,
+              implementing reusable navigation and layout components, responsive
+              design, image-based sections, interactive navigation states, and
+              mobile-friendly layouts. The website was deployed to Netlify and
+              connected to the organization's custom domain.
+            </p>
+
+            <p>
+              <strong>Tools/Languages:</strong> React, TypeScript, JavaScript, HTML,
+              CSS, Vite, React Router, Netlify.
+            </p>
+
+            <a
+              href="https://veteranvalorfarm.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Project
+            </a>
+          </article>
+        </section>
+
+        <section className="resume-section">
+          <h2>Education</h2>
+
+          <article className="resume-item">
+            <div className="resume-item-heading">
+              <h3>Boot Camp Certificate</h3>
+              <span>December 2024</span>
+            </div>
+            <h4>University of Minnesota, Minneapolis, MN</h4>
+            <p>
+              A 12-week intensive program focused on developing technical programming
+              skills in HTML, CSS, Git, JavaScript, Bootstrap, the DOM, APIs, jQuery,
+              JSON, and AJAX. It emphasizes team collaboration, agile development,
+              and project demonstration and storytelling. Expertise in Node.js, ES6,
+              object-oriented programming, Express.js, SQL, the MVC paradigm,
+              Sequelize, testing, Progressive Web Apps, React, NoSQL, the MERN stack,
+              and computer science.
+            </p>
+          </article>
+
+          <article className="resume-item">
+            <div className="resume-item-heading">
+              <h3>Deep Learning Diploma Certificate</h3>
+              <span>December 2019</span>
+            </div>
+            <h4>Technological Institute of Buenos Aires (ITBA), Buenos Aires, Argentina</h4>
+            <p>
+              A 109-hour program focused on Python programming, data analysis, and
+              machine learning, including pandas, matplotlib, numpy, and Jupyter for
+              data manipulation and visualization. Covered linear algebra, probability,
+              statistics, regression, Naive Bayes, neural networks using Keras and
+              PyTorch, MNIST and Fashion-MNIST, CNNs, RNNs, transfer learning,
+              hyperparameter tuning, and model optimization.
+            </p>
+          </article>
+
+          <article className="resume-item">
+            <div className="resume-item-heading">
+              <h3>Master’s Degree in Electronic Engineering</h3>
+              <span>December 2016</span>
+            </div>
+            <h4>University of Buenos Aires, Buenos Aires, Argentina</h4>
+          </article>
+        </section>
       </div>
-    </Container>
+    </main>
   );
-}
+};
+
+export default Resume;
